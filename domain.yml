@@ -1,0 +1,65 @@
+intents:
+  - request_restaurant:
+      use_entities: []
+  - chitchat:
+      use_entities: []
+  - inform
+  - affirm
+  - deny
+  - stop
+  - thankyou
+  - greet
+  - bot_challenge
+
+entities:
+  - cuisine
+  - num_people
+  - feedback
+  - seating
+
+slots:
+  cuisine:
+    type: unfeaturized
+    auto_fill: false
+  num_people:
+    type: unfeaturized
+    auto_fill: false
+  outdoor_seating:
+    type: unfeaturized
+    auto_fill: false
+  preferences:
+    type: unfeaturized
+    auto_fill: false
+  feedback:
+    type: unfeaturized
+    auto_fill: false
+
+actions:
+- utter_ask_cuisine
+- utter_ask_num_people
+- utter_ask_outdoor_seating
+- utter_ask_preferences
+- utter_ask_feedback
+- utter_submit
+- utter_slots_values
+- utter_noworries
+- utter_chitchat
+- utter_ask_continue
+- utter_wrong_cuisine
+- utter_wrong_num_people
+- utter_wrong_outdoor_seating
+- utter_default
+- utter_greet
+- utter_iamabot
+
+templates:
+  utter_slots_values:
+    - text: "Je vais lancer une recherche de restaurant en utilisant les paramètres suivants:\n
+             - cuisine: {cuisine}\n
+             - num_people: {num_people}\n
+             - outdoor_seating: {outdoor_seating}\n
+             - preferences: {preferences}\n
+             - feedback: {feedback}"
+
+forms:
+  - restaurant_form

@@ -16,6 +16,19 @@
 - je voudrais une table pour [3](num_people) personnes
 - trouvez moi une table pour [huit](num_people:8) personnes
 - Puis-je avoir une table dans un resto [grec](cuisine)?
+- J'ai faim
+- Je cherche une pizzeria [italienne] (cuisine)?
+- Je cherche un restaurant avec une [terrasse] (seating)
+- J'ai envie d'un [libanais] (cuisine)
+- Je veux un [grec] (cuisine)
+- Je veux diner dans un restaurant [mexicain](cuisine)
+- Puis-je me sustenter?
+- Je voudrais des sushis
+- Trouve moi un [jap] (cuisine)
+- J'ai envie de fromage
+- Je veux manger [marocain](cuisine) ce soir
+- je suis à la recherche d'un restaurant [maltais](cuisine)
+- je voudrais manger  dans un restaurant de la région
 
 ## intent:affirm
 - ouais un restaurant pas cher
@@ -44,6 +57,17 @@
 - pour [dix](num_people:10) personnes
 - [2](num_people) personnes
 - reservation pour [sept](num_people:7) personnes
+- Je veux manger [italien] (cuisine)
+- Nous sommes [6] (num_people)
+- [Imotep] (feedback)
+- je prefere être à l'[intérieur] (seating)
+- On est [huit] (num_people)
+- Je veux manger [marocain](cuisine) avec des amis. On sera [10](num_people)
+- [Bonne] (feedback) expérience
+- j'aimerai manger en [exterieur](seating)
+- Je préfère avoir [une table à côté de la vitre](preferences)
+- [extérieur](seating)
+- [intérieur](seating)
 
 ## intent:thankyou
 - merci au revoir

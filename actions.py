@@ -17,7 +17,7 @@ class RestaurantForm(FormAction):
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
 
-        return []
+        return ["cuisine","num_people","outdoor_seating","preferences","feedback"] 
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
         """A dictionary to map required slots to
@@ -32,6 +32,9 @@ class RestaurantForm(FormAction):
                 self.from_entity(
                     entity="num_people", intent=["inform", "request_restaurant"]
                 ),
+            "outdoor_seating": self.from_entity(entity="seating", intent=["inform", "request_restaurant"]),
+            "preferences": self.from_text(),
+            "feedback": self.from_text(),
         }
 
     # USED FOR DOCS: do not rename without updating in docs
@@ -39,7 +42,7 @@ class RestaurantForm(FormAction):
     def cuisine_db() -> List[Text]:
         """Database of supported cuisines"""
 
-        return []
+        return ["japonais","italienne","marocain","suédoise","libanaise","jap","italien"]
 
     @staticmethod
     def is_int(string: Text) -> bool:
@@ -78,8 +81,8 @@ class RestaurantForm(FormAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """Validate num_people value."""
-
-        if self.is_int(value):
+        
+        if self.is_int(value) and (int(value) > 0) and (int(value) <= 20):
             return {"num_people": value}
         else:
             dispatcher.utter_message(template="utter_wrong_num_people")
@@ -96,10 +99,10 @@ class RestaurantForm(FormAction):
         """Validate outdoor_seating value."""
 
         if isinstance(value, str):
-            if "intérieur" in value:
+            if "extérieur" in value:
                 # convert "out..." to True
                 return {"outdoor_seating": True}
-            elif "extérieur" in value:
+            elif "intérieur" in value:
                 # convert "in..." to False
                 return {"outdoor_seating": False}
             else:

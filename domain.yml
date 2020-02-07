@@ -9,6 +9,7 @@ intents:
   - stop
   - thankyou
   - greet
+  - goodbye
   - bot_challenge
 
 entities:
@@ -51,8 +52,28 @@ actions:
 - utter_default
 - utter_greet
 - utter_iamabot
+- utter_goodbye
 
 templates:
+  
+  utter_ask_cuisine:
+    - text: "Quel type de cuisine vous ferez plaisir ?"
+
+  utter_ask_num_people:
+    - text: "Vous serez combien pour manger ?"
+
+  utter_ask_outdoor_seating:
+    - text: "Est ce que vous préferez manger à l'extérieur ?"
+
+  utter_ask_preferences:
+    - text: "Est ce que vous avez autres préférences à préciser ?"
+
+  utter_ask_feedback:
+    - text: "Êtes vous satisfait de cet échange ?"
+
+  utter_submit:
+    - text: "J'ai eu toutes les informations me permettant de faire une recherche. Merci beaucoup !"
+
   utter_slots_values:
     - text: "Je vais lancer une recherche de restaurant en utilisant les paramètres suivants:\n
              - cuisine: {cuisine}\n
@@ -60,6 +81,36 @@ templates:
              - outdoor_seating: {outdoor_seating}\n
              - preferences: {preferences}\n
              - feedback: {feedback}"
+
+  utter_noworries:
+    - text : "Avec plaisir !"
+
+  utter_chitchat:
+    - text: "Oui"
+
+  utter_ask_continue:
+    - text: "Tu es sûr de vouloir arrêter notre échange ?"
+
+  utter_wrong_cuisine:
+    - text : "Le type de cuisine que vous avez envoyé est potentiellement erroné ! Veuillez bien le réctifier svp ! "
+
+  utter_wrong_num_people:
+    - text : "Le numéro de personnes que vous avez renseigné est sûrement mal saisi ! Je vous rappelle que ça doit être un entier positif strictement supérieur à 0 ! Quelques termes mathématiques pour te faire du bien ;) "
+
+  utter_wrong_outdoor_seating:
+    - text: "Veuillez bien plutôt répondre oui ou non !"
+
+  utter_default:
+    - text: "Oups ! je n'ai pas compris. Veuillez bien reformuler votre dernier message."
+   
+  utter_greet:
+    - text: "Hey! How can I help you !"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_goodbye:
+    - text: "Bye"
 
 forms:
   - restaurant_form
